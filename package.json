@@ -1,0 +1,25 @@
+{
+  "name": "hubot-shipping-forecast",
+  "description": "",
+  "version": "1.0.0",
+  "author": "Ben Firshman <ben@firshman.co.uk>",
+  "license": "MIT",
+
+  "keywords": [
+    "hubot",
+    "hubot-scripts"
+  ],
+
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/bfirsh/hubot-shipping-forecast.git"
+  },
+
+  "dependencies": {
+    "coffee-script": "~1.6",
+    "xml2js": "0.4.4"
+  },
+
+  "main": "index.coffee"
+}
+
