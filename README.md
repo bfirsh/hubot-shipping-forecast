@@ -1,7 +1,7 @@
 hubot-shipping-forecast
 =======================
 
-British shipit.
+The [shipping forecast](http://en.wikipedia.org/wiki/Shipping_Forecast) for Hubot.
 
     <bfirsh> ship it
     <hubot> Shannon. East or northeast 4 or 5, increasing 6 at times. Moderate, occasionally rough later in west. Occasional thundery rain. Moderate or good, occasionally poor.
