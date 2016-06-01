@@ -23,16 +23,20 @@ parser = new xml2js.Parser()
 
 shippingForecast = (msg) ->
   msg
-    .http('http://www.cems.uwe.ac.uk/xmlwiki/Met/shippingfull.xq')
+    .http('http://www.metoffice.gov.uk/public/data/CoreProductCache/ShippingForecast/Latest')
     .get() (err, res, body) ->
       return msg.send err.message if err
       resp = ''
       parser.parseString body, (err, result) ->
         return msg.send err.message if err
-        forecasts = result?['ShippingForecast']?['forecast']
+        forecasts = result?['report']?['area-forecasts']?[0]
         return if not forecasts
-        forecast = msg.random forecasts
-        msg.send "#{forecast.area[0]}. #{forecast.wind[0]} #{forecast.seastate[0]} #{forecast.weather[0]} #{forecast.visibility[0]}"
+        areas = []
+        for forecast in forecasts['area-forecast']
+          areas.push forecast['area']...
+        return if areas.length == 0
+        area = msg.random areas
+        msg.send "#{area.main[0]}. #{area.wind[0]} #{area.seastate[0]} #{area.weather[0]} #{area.visibility[0]}"
 
 module.exports = (robot) ->
   robot.respond /shipping forecast/i, shippingForecast
